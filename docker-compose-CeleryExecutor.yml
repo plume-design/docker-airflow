@@ -16,7 +16,7 @@ services:
         #     - ./pgdata:/var/lib/postgresql/data/pgdata
 
     webserver:
-        image: plume-design/docker-airflow:1.10.0-4
+        image: josephpeng/private:latest
         restart: always
         depends_on:
             - postgres
@@ -43,7 +43,7 @@ services:
             retries: 3
 
     flower:
-        image: plume-design/docker-airflow:1.10.0-4
+        image: josephpeng/private:latest
         restart: always
         depends_on:
             - redis
@@ -55,7 +55,7 @@ services:
         command: flower
 
     scheduler:
-        image: plume-design/docker-airflow:1.10.0-4
+        image: josephpeng/private:latest
         restart: always
         depends_on:
             - webserver
@@ -74,7 +74,7 @@ services:
         command: scheduler
 
     worker:
-        image: plume-design/docker-airflow:1.10.0-4
+        image: josephpeng/private:latest
         restart: always
         depends_on:
             - scheduler
